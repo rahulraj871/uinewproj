@@ -1,0 +1,147 @@
+.top {
+    padding-top: 15px;
+}
+
+.centerdata {
+    position: relative;
+    top: 6rem
+}
+
+.fullcard {
+    background: #2196f317 !important;
+    /* box-shadow:none !important; */
+}
+
+.cardTitle {
+    margin-left: 15px;
+}
+
+.home_card_box {
+    border: 5px solid #e7e7e7;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0 12px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.home_card_list {
+    display: inline-flex;
+    border-bottom: 1px solid #03a9f45e;
+    padding: 8px 8px;
+    width: 90%;
+}
+
+.home_page_list_name {
+    margin-left: 10px;
+    font-weight: bold;
+}
+.home_page_list_name {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.home_card_ofr_ls {
+    width: 83%;
+    text-align: left;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.home_card_btn {
+    padding: 18px 0;
+}
+
+.home_card_btn_click {
+    width: 100% !important;
+}
+
+.grid_center {
+    margin-top: 3rem !important;
+    text-align: -webkit-center;
+}
+.grid_help_third{
+    width:80% !important;
+    position: relative;
+    /*top: 1rem;*/
+    margin: 0 auto;
+}
+.quote_card_box {
+    border: 1px solid #03A9F4;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 80%;
+}
+.quote_card_list {
+    display: inline-flex;
+    border-bottom: 1px solid #03a9f45e;
+    padding: 8px 8px;
+    width: 100%;
+}
+.quote_title{
+    color: #2196F3;
+}
+
+.form-block{
+    background: rgb(255 255 255);
+    margin: 8px 0 !important;
+    padding: 16px 0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0.1px 1px 2px #888;
+}
+
+.MuiFormLabel-root {
+    color: rgb(110 110 110) !important;
+    padding: 0 !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+}
+
+.MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+    margin-top: 16px !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    font-size: .69rem !important;
+}
+
+.MuiInputBase-root {
+    color: rgb(74 74 74) !important;
+    font-size: .9rem !important;;
+}
+
+.marketingPk__grid_center {
+    margin: 48px auto !important;
+}
+
+.quote-block{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.your-info{
+    width: 75%;
+    margin: 8px auto !important;
+}
+
+.btnclr{
+    background-color: #0A90FC !important;
+}
+.MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #0A90FC !important;
+}

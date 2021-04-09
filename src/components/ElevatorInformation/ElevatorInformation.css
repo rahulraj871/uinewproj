@@ -1,0 +1,82 @@
+.elevator-info-form-slides__section {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#ElevatorInfoFormSlides-0 {
+    display: block;
+}
+
+.ElevatorInfoFormSlides {
+    display: none;
+    width: 75%;
+    transition: all .2s ease-in-out;
+}
+
+.elevator-info-form-slides__next {
+    position: absolute;
+    right: 16px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.elevator-info-form-slides__prev {
+    position: absolute;
+    left: 16px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.elevator-info-form-slides__next, .elevator-info-form-slides__prev {
+    position: absolute;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    /* visibility: hidden; */
+    font-size: 1.2rem;
+}
+
+.visibility-none{
+    /* visiblity:hidden; */
+    display: none;
+}
+.text-center{
+    text-align: center !important;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: .5s;
+    animation-name: fade;
+    animation-duration: .5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.MuiPopover-paper {
+  max-height: 270px !important;
+}

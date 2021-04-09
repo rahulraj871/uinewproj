@@ -1,0 +1,77 @@
+.footer {
+    min-height: 170px;
+    background-color: #4F9BDB;
+    color: rgb(255 255 255);
+    text-align: center;
+    clear: both;
+    font-size: 0.79rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+    margin-top: 8px;
+}
+
+.footer-wrapper {
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+.icon {
+    position: relative;
+    bottom: 8px;
+    margin-left: 5px;
+}
+
+.center {
+    margin: 0 auto !important;
+    margin-top: 20px !important;
+    text-align: left;
+}
+
+.companyname {
+    margin-top: 3rem !important;
+}
+
+.address {
+    margin-top: 20px !important;
+    margin-left: 5rem !important;
+    text-align: left;
+}
+
+.text-center {
+    text-align: start !important;
+}
+
+.margin-left {
+    margin-left: 15px !important;
+}
+
+.pt-10 {
+    padding-top: 5px;
+}
+
+.subscription__block input {
+    color: #fff;
+    font-size: .59rem;
+}
+
+.subscription__block .subscription__title {
+    text-transform: uppercase;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.subscription__block .MuiTextField-root {
+    width: 54%;
+}
+
+.subscription__block .MuiButton-root {
+    height: 24px !important;
+}
+
+.font-weight-bolder{
+    font-weight: 600 !important;
+}

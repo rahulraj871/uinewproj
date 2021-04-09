@@ -1,0 +1,17 @@
+.quote_card_box{
+    cursor: pointer !important;
+}
+.quote_card_box:hover{
+    box-shadow: 1px 1px 6px 3px #cbeaf9;
+}
+
+.quote_card_box .selected{
+    color: #c30202;
+    border: 0;
+}
+.star-ratings{
+    white-space: pre;
+}
+.hidden{
+    display:none;
+}
