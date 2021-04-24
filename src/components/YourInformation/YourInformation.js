@@ -24,11 +24,11 @@ export default function YourInformation(props) {
 	const elevatorsInfo = {
 		original_manufacturer: '',
 		year_of_commision: 1,
-		application: '',
-		elevator_type: '',
+		application: 'passenger',
+		elevator_type: 'hydraluic',
 		machine_room: 'no',
 		no_of_stops: 1,
-		how_many_elevators: 1,
+		how_many_elevators: 2,
 		other_types_of_elevators: 'no'
 	};
 
@@ -45,18 +45,20 @@ export default function YourInformation(props) {
 				setIsLoaded(true);
 				if/*(res.length === 1)*/(res){
 					setFieldValue('quotes.name', res.user_name || '');
-					setFieldValue('quotes.email', res.user_email);
+					setFieldValue('quotes.email', 'Costellod@uthscsa.edu');
 					setFieldValue("quotes.address", res.address || '');
 					setFieldValue('quotes.city', res.city || '');
 					setFieldValue('quotes.zip_code', res.zip_code || '');
 					setTimeout(()=>{
-						document.getElementsByName('quotes.address')[1].value = res.address;
+						document.getElementsByName('quotes.address')[1].value  = res.address ?? '' ;
 						document.getElementsByName('quotes.city')[1].value = res.city;
 						document.getElementsByName('quotes.zip_code')[1].value = res.zip_code;
 					}, 500);
 					setFieldValue('quotes.current_maintainer', res.current_maintainer || '');
 					setFieldValue('quotes.type_of_business', res.type_of_business || '');
-					setFieldValue('quotes.quote_requests', res.quote_requests);
+					setFieldValue('quotes.quote_requests', "2");
+					setFieldValue('quotes.yourname', "Costellod uthscsa ");
+					setFieldValue('quotes.NO_elevators', "2");
 				}
 			});
 
@@ -172,7 +174,7 @@ export default function YourInformation(props) {
 								}}
 								renderInput={
 									params => (
-										<Field fullWidth label="Address" id="quotes.address" name="quotes.address" component={TextField} {...params} />
+										<Field fullWidth label="Building Address" id="quotes.address" name="quotes.address" component={TextField} {...params} />
 									)
 								}
 							/>
@@ -194,11 +196,12 @@ export default function YourInformation(props) {
 									}
                                     handleCityInputChange(value);
                                     if(typeof value == 'object'){ value = value.city;}
+									localStorage.setItem("city",value);
 									setFieldValue("quotes.city", value)
 								}}
 								renderInput={
 									params => (
-										<Field fullWidth label="City" id="quotes.city" name="quotes.city" component={TextField} {...params} />
+										<Field fullWidth label="Building City" id="quotes.city" name="quotes.city" values={localStorage.getItem('city') !== null &&  localStorage.getItem('city') !== '' ? localStorage.getItem('city') : '' } component={TextField} {...params} />
 									)
 								}
 							/>
@@ -224,14 +227,14 @@ export default function YourInformation(props) {
 								}}
 								renderInput={
 									params => (
-										<Field fullWidth label="ZIP Code" id="quotes.zip_code" name="quotes.zip_code" component={TextField} {...params} />
+										<Field fullWidth label="Building ZIP Code" id="quotes.zip_code" name="quotes.zip_code" component={TextField} {...params} />
 									)
 								}
 							/>
 						</div>
 
 						<div className={classes.top}>
-							<Field fullWidth label="Name" id="quotes.name" name="quotes.name" component={TextField} />
+							<Field fullWidth label="Building Name " id="quotes.name" name="quotes.name" component={TextField} />
 						</div>
 
 						<div className={classes.top}>
@@ -243,7 +246,7 @@ export default function YourInformation(props) {
 						</div>
 
 						<div className={classes.top}>
-							<Field type="email" fullWidth label="Email" id="quotes.email" name="quotes.email" component={TextField} 
+							<Field type="email" fullWidth label="Email Address" id="quotes.email" name="quotes.email" component={TextField} 
 							onBlur={(e, value) => {
 								console.log('email onchange', e, value, e.target.name, e.target.value);
 								// if(!value){
@@ -252,7 +255,7 @@ export default function YourInformation(props) {
 								// handleZipCodeInputChange(value);
 								// if(typeof value == 'object'){ value = value.email;}
 								zipCodeOptions.forEach((e)=>{
-									if(e.user_email == e.target.value){
+									if(e.user_email === e.target.value){
 										setFieldValue('quotes.quote_requests', e.quote_requests);
 										setFieldValue('quotes.name', e.user_name);
 									}
@@ -260,11 +263,12 @@ export default function YourInformation(props) {
 							}} />
 						</div>
 
+					
 						<div className={classes.top}>
 							<FieldArray
 								name="elevatorsInfo"
 								render={arrayHelpers => (
-									<Field fullWidth label="Elevators" id="quotes.quote_requests" name="quotes.quote_requests" as={TextField} 
+									<Field fullWidth label="Elevators" id="quotes.NO_elevators" name="quotes.NO_elevators" as={TextField} 
 												 render={({field, form}) => {
 													 field.onChange = (event) => {
 														 handleElevatorCountChange(event, form, arrayHelpers)
@@ -272,11 +276,15 @@ export default function YourInformation(props) {
 													 }
 
 													 return (
-														 <MatTextField fullWidth label="Elevators" id="quotes.quote_requests"
-																					 name="quotes.quote_requests" {...field}/>)
+														 <MatTextField fullWidth label="No. Of Elevators" id="quotes.NO_elevators"
+																					 name="quotes.NO_elevators" {...field}/>)
 												 }}/>
 								)}/>
 						</div>
+						<div className={classes.top}>
+							<Field fullWidth label="Your Name(First,Last) " id="quotes.yourname" name="quotes.yourname" component={TextField} />
+						</div>
+
 
 						{/* <div className={classes.top}>
 							<Field fullWidth label="Upload File" id="quotes.file" name="quotes.file" component={TextField} type="file" />

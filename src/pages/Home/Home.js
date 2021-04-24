@@ -270,14 +270,14 @@ function HomeSteppers() {
 				body: JSON.stringify(values)
 			}
 
-			console.log('submitForm', values);
+			//console.log('submitForm', values);
 			fetch(`${Config.quote}/save`, OPTIONS)
 				.then((res) => res.json(), error => {
 					setSubmitting(false);
 				})
 				.then(result => {
-					console.log(result);
-					if (result.statusCode === 200) {
+					//console.log(result);
+					if (result.status === 200) {
 						handleClickOpen("Form submitted successfully")
 						return
 					}

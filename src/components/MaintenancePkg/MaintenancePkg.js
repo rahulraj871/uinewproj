@@ -101,7 +101,7 @@ export default function MaintenancePkg(){
 								</div>
 								<div className="home_card_btn">
 									<Button onClick={()=>handleSelectingPlan(pkg.name)} variant="contained" className="home_card_btn_click" color="primary">
-										{ pkg.name === 'Oil & Grease' && pkg.name === 'Partial Maintenance'? 'NOT RECOMMENDED' :'CURRENT PLAN'}
+										{ pkg.name === 'Oil & Grease' && pkg.name === 'Partial Maintenance'? 'NOT RECOMMENDED' :'SELECT PLAN'}
 									</Button>
 								</div>
 

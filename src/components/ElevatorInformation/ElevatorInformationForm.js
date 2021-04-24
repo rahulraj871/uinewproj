@@ -26,6 +26,8 @@ export default function ElevatorInformationForm(props) {
 				console.log('requests.'+props.formIndex+'.elevator_type', `requests.${props.formIndex}.elevator_type`)
 				document.getElementsByName('props.manufacturesList')[0].value = values.requests[props.formIndex].original_manufacturer;
 				document.getElementsByName('elevatorTypesList')[0].value = values.requests[props.formIndex].elevator_type;
+
+				
 			}, 500);
 		}
 	}, []);
@@ -73,7 +75,7 @@ export default function ElevatorInformationForm(props) {
 					}}
 					renderInput={
 						params => (
-							<Field fullWidth id="props.manufacturesList" name="props.manufacturesList" component={TextField} {...params} />
+							<Field fullWidth label="ORIGINAL MANUFACTURER" id="props.manufacturesList" name="props.manufacturesList" component={TextField} {...params} />
 							// label="Original Manufacture" 
 						)
 					}
@@ -136,7 +138,7 @@ export default function ElevatorInformationForm(props) {
 					}}
 					renderInput={
 						params => (
-							<Field fullWidth  id="elevatorTypesList" name="elevatorTypesList" component={TextField} {...params} />
+							<Field fullWidth  label="ELEVATOR TYPE" id="elevatorTypesList" name="elevatorTypesList" component={TextField} {...params} />
 							// label="Elevator Type"
 						)
 					}

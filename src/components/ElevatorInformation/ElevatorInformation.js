@@ -65,7 +65,7 @@ export default function ElevatorInformation(props) {
 				// isLoaded = true;
 				setIsLoaded(true);
 				document.getElementById('pager').innerHTML = 1;
-				document.getElementById('outof').innerHTML = values.quotes.quote_requests;
+				document.getElementById('outof').innerHTML = 2;//values.quotes.quote_requests;
 			});
 
 	}, []);

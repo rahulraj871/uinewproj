@@ -8,13 +8,31 @@ import Config from "../../config";
 
 export default function Quotes() {
 
-	const [selectedQuote, setSelectedQuote] = useState('reliable');
+	//const [selectedQuote, setSelectedQuote] = useState('reliable');
+	const [selectedQuoteList, setSelectedQuoteList] = useState([]);
 	const { setFieldValue, values, setValues } = useFormikContext();
 	const [quotes, setQuotes] = useState([]);
 
 	const handleSelectingQuote = (quoteName) => {
 		setFieldValue(`quotes.quote_type`, quoteName, true);
-		setSelectedQuote(quoteName);
+		//setSelectedQuote(quoteName);
+	
+		if(!selectedQuoteList.includes(quoteName)){
+			console.log('QuotaList : ', selectedQuoteList);
+			let oldItem = selectedQuoteList;
+			oldItem.push(quoteName);
+			console.log('QuotaListOld : ', oldItem);
+
+			setSelectedQuoteList([...oldItem]);
+		}
+		else{
+			let index = selectedQuoteList.indexOf(quoteName);
+			let oldData = selectedQuoteList;
+			if (index !== -1) {
+				oldData.splice(index, 1);
+			}
+			setSelectedQuoteList([...oldData]);
+		}
 	}
 
 	const handleToggleMore = (id) => {
@@ -62,32 +80,51 @@ export default function Quotes() {
 							// {/* <Grid item xs={12} sm={1}></Grid> */ }
 							<Grid item xs = { 12} sm = { 3} className = "marketingPk__grid_center" >
 								<div className="quote_card_box">
-									<h2 className="mb-0">{pkg.business_name}</h2>{ /* <h2 className="mt-0">Elevator</h2>*/ }
+									<div className='quote-title'>
+									<h2 className="mb-0">{pkg.business_name}</h2>
+									</div>
+									{ /* <h2 className="mt-0">Elevator</h2>*/ }
 
-									{selectedQuote === pkg.id ? <h2 className="quote_title selected">Get Quote <CheckIcon /></h2> :
-										<h2 className="quote_title">Get Quote</h2>}
+									{selectedQuoteList.includes(pkg.id ) ? <div>
+										<h2 className="quote_title selected">Get Quote <CheckIcon />
+										</h2> 	</div>:
+										<div><h2 className="quote_title">Get Quote</h2></div>}
 
 									<div>
 										<div className="quote_card_list">
-											<div className="home_card_ofr_ls">Reputation</div>
+											<div className="home_card_ofr_ls">NPS</div>
 											<div className="home_page_list_name star-ratings"><b>{pkg.google_rating}</b></div>
 										</div>
 										<div className="quote_card_list">
-											<div className="home_card_ofr_ls">Size</div>
+											<div className="home_card_ofr_ls">BBB Rating</div>
+											<div className="home_page_list_name star-ratings"><b>{pkg.google_rating}</b></div>
+										</div>
+										<div className="quote_card_list">
+											<div className="home_card_ofr_ls">Google Rating</div>
 											<div className="home_page_list_name star-ratings">{pkg.employees}</div>
 										</div>
 										<div className="quote_card_list">
-											<div className="home_card_ofr_ls">Business Rating</div>
+											<div className="home_card_ofr_ls">Years In Service </div>
 											<div className="home_page_list_name star-ratings">{pkg.bbb_business_rating}</div>
 										</div>
 										<div className="quote_card_list">
-											<div className="home_card_ofr_ls">Net Promoter</div>
-											<div className="home_page_list_name star-ratings">{pkg.net_promoter_score}</div>
+											<div className="home_card_ofr_ls">No of Employees</div>
+											<div className="home_page_list_name star-ratings">{pkg.employees}</div>
 										</div>
-										<div className="quote_card_list" onClick={() => handleToggleMore(pkg.id)}>
+										<div className="quote_card_list">
+											<div className="home_card_ofr_ls">License Number</div>
+											<div className="home_page_list_name star-ratings">{pkg.lcense_number}</div>
+										</div>
+										<div className="quote_card_list">
+											<div className="home_card_ofr_ls">Phone</div>
+											<div className="home_page_list_name star-ratings">{pkg.owner_telephone}</div>
+										</div>
+										
+										
+										{/* <div className="quote_card_list" onClick={() => handleToggleMore(pkg.id)}>
 											<div className="home_card_ofr_ls fw-bold"><small>More</small></div>
 											<div className="home_page_list_name">-</div>
-										</div>
+										</div> */}
 										{quotes.indexOf(pkg.id) > -1 ? 
 										<div>
 											<div className="quote_card_list" className={pkg.more}>
@@ -102,7 +139,7 @@ export default function Quotes() {
 									</div>
 									<div className="home_card_btn">
 										<Button onClick={() => handleSelectingQuote(pkg.id)} variant="contained" className="home_card_btn_click" color="primary">
-											{ pkg.name === 'Oil & Grease'? 'NOT RECOMMENDED' :'CURRENT PLAN'}
+											{ pkg.name === 'Oil & Grease'? 'NOT RECOMMENDED' :'SELECT'}
 										</Button>
 									</div>
 									<div className="home_card_btn">
