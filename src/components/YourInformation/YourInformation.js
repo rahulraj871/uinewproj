@@ -66,6 +66,7 @@ export default function YourInformation(props) {
 
 	const handleAddressInputChange = (searchStr)=>{
 		setAddressOptions([])
+		if(searchStr != ''){
 		fetch(`${Config.user}/addresslike/${searchStr}`)
 			.then((res) => res && res.json() || [], error => {
 				alert('Something went wrong');
@@ -75,6 +76,7 @@ export default function YourInformation(props) {
 				setCityOptions(res);
 				console.log('handleAddressInputChange: ',addressOptions)
 			});
+		}
 	}
 
 	const handleCityInputChange = (searchStr)=>{
