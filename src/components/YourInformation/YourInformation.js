@@ -50,9 +50,12 @@ export default function YourInformation(props) {
 					setFieldValue('quotes.city', res.city || '');
 					setFieldValue('quotes.zip_code', res.zip_code || '');
 					setTimeout(()=>{
-						document.getElementsByName('quotes.address')[1].value  = res.address ?? '' ;
-						document.getElementsByName('quotes.city')[1].value = res.city;
-						document.getElementsByName('quotes.zip_code')[1].value = res.zip_code;
+						var address = document.getElementsByName('quotes.address')
+						var city = document.getElementsByName('quotes.city')
+						var zip_code = document.getElementsByName('quotes.zip_code')
+						if(address && address.length>1){address[1].value  = res.address ?? '' ;}
+						if(city && city.length>1){city[1].value = res.city;}
+						if(zip_code && zip_code.length>1){zip_code[1].value = res.zip_code;}
 					}, 500);
 					setFieldValue('quotes.current_maintainer', res.current_maintainer || '');
 					setFieldValue('quotes.type_of_business', res.type_of_business || '');
